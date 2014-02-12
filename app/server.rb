@@ -38,26 +38,11 @@ class BookmarkManager < Sinatra::Base
 		@links = tag ? tag.links : []
 		erb :index
 	end
-	get '/users*' do
-		UsersController.call(env)
-	end
-	# get '/users/new' do
-	# 	@user = User.new
-	# 	erb :"users/new"
-	# end
 
-	# post '/users' do
-	# 	@user = User.new(:email => params[:email], 
- #                :password => params[:password],
- #                :password_confirmation => params[:password_confirmation])
-	# 	if @user.save
-	# 		session[:user_id] = @user.id
-	# 		redirect to('/')
-	# 	else
-	# 		flash.now[:errors] = @user.errors.full_messages
-	# 		erb :"users/new"
-	# 	end
-	# end
+	# get('/users/new') { UsersController.call(env) }
+	# post('/users') 		{ UsersController.call(env) }
+
+	use UsersController
 
 	get '/sessions/new' do
 		erb :"sessions/new"
