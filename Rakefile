@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './app/db_config'
+require_relative 'app/db_config'
 
 task :auto_upgrade do
 	DataMapper.auto_upgrade!
