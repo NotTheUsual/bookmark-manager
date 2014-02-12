@@ -4,10 +4,12 @@ require 'data_mapper'
 require 'sinatra/base'
 require './app/helpers/server_helpers'
 require './app/db_config'
+require 'rack-flash'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
   set :session_secret, 'Fat Dave'
+  use Rack::Flash
 
   helpers ServerHelper
 
@@ -33,15 +35,21 @@ class BookmarkManager < Sinatra::Base
 	end
 
 	get '/users/new' do
+		@user = User.new
 		erb :"users/new"
 	end
 
 	post '/users' do
-		user = User.create(:email => params[:email], 
+		@user = User.new(:email => params[:email], 
                 :password => params[:password],
                 :password_confirmation => params[:password_confirmation])
-		session[:user_id] = user.id
-		redirect to('/')
+		if @user.save
+			session[:user_id] = @user.id
+			redirect to('/')
+		else
+			flash.now[:notice] = "Sorry, your passwords don't match"
+			erb :"users/new"
+		end
 	end
 
   # start the server if ruby file executed directly
