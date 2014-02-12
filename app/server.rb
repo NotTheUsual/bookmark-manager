@@ -6,7 +6,8 @@ require 'sinatra/partial'
 require './app/helpers/server_helpers'
 require './app/db_config'
 require 'rack-flash'
-require_relative './controllers/users'
+require_relative 'controllers/users'
+require_relative 'controllers/authentication'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
@@ -43,28 +44,29 @@ class BookmarkManager < Sinatra::Base
 	# post('/users') 		{ UsersController.call(env) }
 
 	use UsersController
+	use AuthenticationController
 
-	get '/sessions/new' do
-		erb :"sessions/new"
-	end
+	# get '/sessions/new' do
+	# 	erb :"sessions/new"
+	# end
 
-	post '/sessions' do
-		email, password = params[:email], params[:password]
-		user = User.authenticate(email, password)
-		if user
-			session[:user_id] = user.id
-			redirect '/'
-		else
-			flash.now[:errors] = ["The email or password are incorrect"]
-			erb :"sessions/new"
-		end
-	end
+	# post '/sessions' do
+	# 	email, password = params[:email], params[:password]
+	# 	user = User.authenticate(email, password)
+	# 	if user
+	# 		session[:user_id] = user.id
+	# 		redirect '/'
+	# 	else
+	# 		flash.now[:errors] = ["The email or password are incorrect"]
+	# 		erb :"sessions/new"
+	# 	end
+	# end
 
-	delete '/sessions' do
-		flash[:notice] = "Goodbye!"
-		session[:user_id] = nil
-		redirect to('/')
-	end
+	# delete '/sessions' do
+	# 	flash[:notice] = "Goodbye!"
+	# 	session[:user_id] = nil
+	# 	redirect to('/')
+	# end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
