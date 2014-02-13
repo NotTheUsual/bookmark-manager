@@ -1,6 +1,6 @@
 require 'sinatra/partial'
 require 'rack-flash'
-require_relative '../helpers/server_helpers'
+require_relative '../helpers/user_helpers'
 
 class Base < Sinatra::Base
 	enable :sessions
@@ -10,7 +10,7 @@ class Base < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
-  helpers ServerHelper
+  helpers UserHelpers
 
   set :views, File.join(File.dirname(__FILE__), '../views')
 end
