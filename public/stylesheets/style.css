@@ -1,0 +1,56 @@
+body {
+	background-color: #e9e9e9;
+}
+
+header {
+	background-color: black;
+	color: white;
+	padding: 0.4em;
+}
+#logo {
+	font-size: 2em;
+	font-family: sans-serif;
+	font-weight: 200;
+	display: inline-block;
+	width: 40%;
+}
+#user-links {
+	display: inline-block;
+	text-align: right;
+	width: 59%;
+	height: 2em;
+}
+
+button {
+	background-color: yellow;
+	color: red;
+	border-radius: 1em;
+	border: 2px dashed red;
+	font-size: 140%;
+}
+
+#user-links input[type=submit] {
+	background-color: red;
+	color: white;
+	padding: 0.5em 1em;
+	line-height: 1em;
+	border-radius: 3px;
+	border: none;
+}
+
+#user-links input[type=submit]:hover {
+	cursor: pointer;
+	background-color: #aa0000;
+}
+
+#user-links input[type=submit]:focus {
+	outline: none;
+}
+
+#user-links form {
+	display: inline-block;
+}
+
+#welcome-message {
+	margin-right: 1em;
+}

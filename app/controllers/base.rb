@@ -13,4 +13,5 @@ class Base < Sinatra::Base
   helpers UserHelpers
 
   set :views, File.join(File.dirname(__FILE__), '../views')
+  set :public, File.join(File.dirname(__FILE__), '../../public')
 end

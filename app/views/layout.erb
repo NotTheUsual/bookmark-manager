@@ -2,16 +2,21 @@
 <html>
 	<head>
 		<title>Bookmark Manager</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 	</head>
 	<body>
-		<%= partial :welcome_message %>
+		<header>
+			<div id="logo">Bookmark Manager</div>
+			<div id="user-links">
+				<%= partial :user_links %>
+			</div>
+		</header>
 		<%= partial :flash %>
 	  <%= yield %>
 	  <footer>
 	  	<nav>
 	  		<a href="/">Home</a>
-	  		<a href="/sessions/new">Sign In</a>
-	  		<a href="/users/new">New User</a>
 	  	</nav>
 	  </footer>
 	</body>
