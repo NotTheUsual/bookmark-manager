@@ -7,6 +7,10 @@ header {
 	color: white;
 	padding: 0.4em;
 }
+header a {
+	color: white;
+	text-decoration: none;
+}
 #logo {
 	font-size: 2em;
 	font-family: sans-serif;
