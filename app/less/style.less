@@ -1,1 +1,248 @@
 // out: ../../public/stylesheets/style.css
+
+@import '_mixins.less';
+@import '_variables.less';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @background-colour;
+  font-family: @main-font;
+}
+
+a {
+  text-decoration: none;
+  color: @link-colour;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  
+  #logo-box {
+    float: left;
+    margin-right: 1em;
+  }
+  
+  #logo {
+    color: white;
+	text-decoration: none;
+    font-size: 1.25em;
+    line-height: 1.35em;
+    font-family: sans-serif;
+    font-weight: 200;
+  }
+  
+  #new-link-button {
+    float: left;
+  }
+  
+  #user-links {
+    float: right;
+	text-align: right;
+  }
+  
+  .clearfix;
+}
+
+#user-links form {
+	display: inline-block;
+}
+
+#welcome-message {
+	margin-right: 1em;
+}
+
+.container {
+  background-color: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5em;
+  margin-top: 1em;
+  .box-shadow(0,0,1px,0.2);
+}
+
+h1 {
+  font-family: @header-font;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+//=======================
+// Links
+//=======================
+
+.link {
+  a.title h1 {
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    margin: 10px inherit;
+  }
+  
+  .source {
+    float: right; 
+    font-size: 12px;
+    font-family: serif;
+  }
+  
+  &:first-child { margin-top: 2em; }
+  &:last-child { margin-bottom: 0; }
+}
+
+//=======================
+// Buttons
+//=======================
+
+.button {
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-family: sans-serif;
+  padding: 0.5em 1em 0.4em;
+  border: none;
+  margin: 0 0.3em;
+  .border-radius(2px);
+  .gradient (@button-highlight, @button-colour);
+  
+  &:hover {
+    text-decoration: none;
+  }
+    
+  &:active {
+    .gradient (@button-colour, @button-highlight)
+  }
+  
+  &.highlighted {
+    .gradient (@button-highlighted-highlight, @button-highlighted-colour);
+    
+    &:active {
+      .gradient (@button-highlighted-colour, @button-highlighted-highlight);
+    }
+  }
+  
+  &.bad {
+    .gradient (@button-bad-highlight, @button-bad-colour);
+    
+    &:active {
+      .gradient (@button-bad-colour, @button-bad-highlight);
+    }
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+a.button {
+  display: inline-block;
+}
+
+//=======================
+// Footer
+//=======================
+
+footer {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.79);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  > * {
+    margin: auto inherit;
+  }
+  
+  #makersacademy-logo {
+    max-width: 40%;
+  }
+
+  img {
+    /* http://stackoverflow.com/questions/10658475/3px-extra-height-on-a-div-with-an-image-inside-it */
+    vertical-align: top;
+    max-height: 45px;
+    max-width: 100%;
+  }
+
+  #technologies {
+    -webkit-flex: 1;
+    flex: 1;
+    font-family: sans-serif;
+    font-size: 0.7em;
+  }
+
+  p {
+    padding: 0.4em 2em;
+    
+    &:first-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+//=======================
+// Forms
+//=======================
+
+#sign-up, #sign-in, #new-link {
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  .clearfix;
+}
+
+input[type=email],input[type=password],input[type=url],input[type=text] {
+  background-color: white;
+  font-size: 1em;
+  padding: 0.75em 1em;
+  border: none;
+  .inner-shadow (0, 0, 2px, 0, 0.25);
+  display: block;
+  margin-bottom: 0.5em;
+  width: 500px;
+  max-width: 100%;
+  border-bottom: 1px solid white;
+  
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid @good-colour;
+  }
+}
+
+input[type=submit] {
+  float: right;
+  margin-right: 0;
+}
+
+//=======================
+// Flash Messages
+//=======================
+
+.flash {
+  width: 90%;
+  margin: 1em auto -1em;
+  padding: 0.5em;
+  color: white;
+  .border-radius(3px);
+  text-align: center;
+  font-family: sans-serif;
+  
+  &.notice {
+    background-color: @good-colour;
+  }
+  
+  &.errors {
+    background-color: @bad-colour;
+  }
+}

@@ -2,9 +2,9 @@
   <span id="welcome-message">Welcome, <%= current_user.email %></span>
   <form id="sign-out" method="post" action="/sessions">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out">
+    <input type="submit" class="button bad" value="Sign out">
   </form>
 <% else %>
-	<a href="/users/new"><button name="Sign up">Sign up</button></a>
-	<a href="/sessions/new"><button name="Sign in">Sign in</button></a>
+	<a href="/users/new" class="button">Sign up</a>
+	<a href="/sessions/new" class="button">Sign in</a>
 <% end %>

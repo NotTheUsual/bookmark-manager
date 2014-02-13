@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Bookmark Manager</title>
-		<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
-		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-	</head>
-	<body>
-		<header>
-			<a href="/" alt="Home"><div id="logo">Bookmark Manager</div></a>
-			<div id="user-links">
-				<%= partial :user_links %>
-			</div>
-		</header>
-		<%= partial :flash %>
-	  <%= yield %>
-	  <footer>
-	  	<nav>
-	  		<a href="/">Home</a>
-	  	</nav>
-	  </footer>
-	</body>
+  <head>
+    <title>Bookmark Manager</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo-box"><a id="logo" href="/" alt="Home">Bookmark Manager</a></div>
+      <a id="new-link-button" href="/links/new" class="button highlighted" title="New Link">Add link</a>
+      <div id="user-links">
+        <%= partial :user_links %>
+      </div>
+    </header>
+    <%= partial :flash %>
+    <%= yield %>
+    <footer>
+      <a id="makersacademy-logo" href="http://www.makersacademy.com/">
+        <img src="http://www.makersacademy.com/images/logo.png">
+      </a>
+      <div id="technologies">
+        <p>I built this page at <a href="http://www.makersacademy.com">Makers Academy, a highly selective 12 week coding course in London</a>.</p>
+        <p>This website is built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS.</p>
+      </div>
+    </footer>
+  </body>
 </html>
