@@ -10,6 +10,16 @@
 .clearfix:after {
   clear: both;
 }
+.transparent {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+.opaque {
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
 * {
   box-sizing: border-box;
 }
@@ -79,6 +89,9 @@ h1 {
   font-size: 1.5em;
   margin-bottom: 1em;
 }
+.link.container {
+  padding-bottom: 1em;
+}
 .link a.title h1 {
   letter-spacing: 1px;
   margin-bottom: 1rem;
@@ -89,13 +102,50 @@ h1 {
 .link .source {
   float: right;
   font-size: 12px;
-  font-family: serif;
+  padding-top: 0.8em;
 }
 .link:first-child {
   margin-top: 2em;
 }
 .link:last-child {
-  margin-bottom: 0;
+  margin-bottom: 5em;
+}
+section footer {
+  margin-top: 1em;
+  font-family: sans-serif;
+  zoom: 1;
+}
+section footer:before,
+section footer:after {
+  content: "";
+  display: table;
+}
+section footer:after {
+  clear: both;
+}
+.tag {
+  display: inline-block;
+  background-color: #c46e09;
+  color: white;
+  font-size: 0.75em;
+  padding: 0.4em 0.6em;
+  margin-right: 0.5em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  float: left;
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+.tag:hover {
+  text-decoration: none;
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
 }
 .button {
   color: white;
@@ -169,35 +219,35 @@ h1 {
 a.button {
   display: inline-block;
 }
-footer {
+body > footer {
   display: flex;
   background-color: rgba(255, 255, 255, 0.79);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
-footer > * {
+body > footer > * {
   margin: auto inherit;
 }
-footer #makersacademy-logo {
+body > footer #makersacademy-logo {
   max-width: 40%;
 }
-footer img {
+body > footer img {
   /* http://stackoverflow.com/questions/10658475/3px-extra-height-on-a-div-with-an-image-inside-it */
   vertical-align: top;
   max-height: 45px;
   max-width: 100%;
 }
-footer #technologies {
+body > footer #technologies {
   -webkit-flex: 1;
   flex: 1;
   font-family: sans-serif;
   font-size: 0.7em;
 }
-footer p {
+body > footer p {
   padding: 0.4em 2em;
 }
-footer p:first-child {
+body > footer p:first-child {
   padding-bottom: 0;
 }
 #sign-up,

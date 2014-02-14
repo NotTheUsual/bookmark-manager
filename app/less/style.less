@@ -81,6 +81,10 @@ h1 {
 //=======================
 
 .link {
+  &.container {
+    padding-bottom: 1em;
+  }
+  
   a.title h1 {
     letter-spacing: 1px;
     margin-bottom: 1rem;
@@ -93,11 +97,35 @@ h1 {
   .source {
     float: right; 
     font-size: 12px;
-    font-family: serif;
+    padding-top: 0.8em;
   }
   
   &:first-child { margin-top: 2em; }
-  &:last-child { margin-bottom: 0; }
+  &:last-child { margin-bottom: 5em; }
+}
+
+
+section footer {
+  margin-top: 1em;
+  font-family: sans-serif;
+  .clearfix;
+}
+
+.tag {
+  display: inline-block;
+  background-color: @link-colour;
+  color: white;
+  font-size: 0.75em;
+  padding: 0.4em 0.6em;
+  margin-right: 0.5em;
+  .border-radius(2px);
+  float: left;
+  .transparent;
+  
+  &:hover {
+    text-decoration: none;
+    .opaque;
+  }
 }
 
 //=======================
@@ -153,10 +181,10 @@ a.button {
 // Footer
 //=======================
 
-footer {
+body > footer {
   display: flex;
   background-color: rgba(255, 255, 255, 0.79);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   
