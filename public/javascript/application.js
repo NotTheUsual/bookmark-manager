@@ -29,7 +29,21 @@ function prepareRemoteFormsHandler() {
         $('#links-container').prepend("<div id='ajax-form'></div>");
       }
       $('#links-container #ajax-form').html(data);
+      prepareFormHandler();
     });
+    event.preventDefault();
+  });
+}
+
+function prepareFormHandler() {
+  var form = $('#links-container #ajax-form form');
+  form.submit(function(event){
+    var addLink = function(data) {
+      $('#links-container #ajax-form').remove();
+      $('#links-container').prepend(data);
+    };
+    var data = form.serialize();
+    $.post(form.attr('action'), data, addLink);
     event.preventDefault();
   });
 }

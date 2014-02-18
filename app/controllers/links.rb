@@ -16,8 +16,12 @@ class LinksController < Base
 	  tags = params["tags"].split(" ").map do |tag|
 	  	Tag.first_or_create(:text => tag)
 	  end
-	  Link.create(:url => url, :title => title, :tags => tags)
-	  redirect to('/')
+	  link = Link.create(:url => url, :title => title, :tags => tags)
+    if request.xhr?
+  	  erb :link, locals: {link: link}, layout: nil
+    else
+      redirect to('/')
+    end
 	end
 
 	get '/tags/:text' do
