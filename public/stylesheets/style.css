@@ -89,6 +89,9 @@ h1 {
   font-size: 1.5em;
   margin-bottom: 1em;
 }
+.link {
+  display: none;
+}
 .link.container {
   padding-bottom: 1em;
 }
