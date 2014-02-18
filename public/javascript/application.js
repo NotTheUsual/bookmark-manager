@@ -22,6 +22,19 @@ function showLinkFavouritedNotice(link) {
   }, 3000);
 }
 
+function prepareRemoteFormsHandler() {
+  $('.add-link, .new-user, .new-session').click(function(event) {
+    $.get($(this).attr("href"), function(data) {
+      if ($('#ajax-form').length == 0) {
+        $('#links-container').prepend("<div id='ajax-form'></div>");
+      }
+      $('#links-container #ajax-form').html(data);
+    });
+    event.preventDefault();
+  });
+}
+
 $(function () {
   addFavouritesHandler();
+  prepareRemoteFormsHandler();
 });

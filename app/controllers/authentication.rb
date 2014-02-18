@@ -2,7 +2,7 @@ require_relative 'base'
 
 class AuthenticationController < Base
 	get '/sessions/new' do
-		erb :"sessions/new"
+		erb :"sessions/new", layout: !request.xhr?
 	end
 
 	post '/sessions' do
