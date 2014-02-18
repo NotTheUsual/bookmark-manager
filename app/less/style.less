@@ -81,7 +81,7 @@ h1 {
 //=======================
 
 .link {
-  display: none;
+  position: relative;
   
   &.container {
     padding-bottom: 1em;
@@ -104,6 +104,20 @@ h1 {
   
   &:first-child { margin-top: 2em; }
   &:last-child { margin-bottom: 5em; }
+  
+  .star {
+    position: absolute;
+    font-size: 1.5em;
+    right: 0.5em;
+    top: 0.5em;
+    cursor: pointer;
+    color: #ccc;
+    
+    &.solid {
+      opacity: 0;
+      color: #888;
+    }
+  }
 }
 
 
