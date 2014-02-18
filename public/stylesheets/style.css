@@ -335,3 +335,11 @@ input[type=submit] {
 .flash.errors {
   background-color: #c10a0a;
 }
+.flash.fixed {
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  left: 20%;
+  z-index: 100;
+  width: 60%;
+}
