@@ -11,6 +11,7 @@ gem 'sinatra-partial'
 
 group :development, :test do
 	gem 'shotgun'
+  gem 'poltergeist'
   gem "rspec"
   gem 'capybara'
   gem 'cucumber'
