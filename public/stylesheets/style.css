@@ -41,8 +41,9 @@ header {
   zoom: 1;
 }
 header #logo-box {
-  float: left;
-  margin-right: 1em;
+  float: none;
+  width: 100%;
+  margin-bottom: 1em;
 }
 header #logo {
   color: white;
@@ -106,6 +107,7 @@ h1 {
   float: right;
   font-size: 12px;
   padding-top: 0.8em;
+  text-align: right;
 }
 .link:first-child {
   margin-top: 2em;
@@ -342,4 +344,12 @@ input[type=submit] {
   left: 20%;
   z-index: 100;
   width: 60%;
+}
+@media screen and (min-width: 481px) {
+  header #logo-box {
+    float: left;
+    width: auto;
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
 }

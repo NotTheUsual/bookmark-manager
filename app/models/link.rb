@@ -6,4 +6,6 @@ class Link
 	property :url, String
 
 	has n, :tags, through: Resource
+
+  has n, :favers, 'User', through: Resource, :required => false
 end

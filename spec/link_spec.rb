@@ -14,4 +14,14 @@ describe Link do
 			expect(Link.count).to eq(0)
 		end
 	end
+
+	context 'trying to create favourites' do 
+		it "should have an empty favourites array" do
+			user = User.create(email: "test@test.com",
+								password: "test",
+								password_confirmation: "test")
+			expect(user.favs).to eq([])
+		end
+
+	end
 end
